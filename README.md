@@ -1,113 +1,112 @@
-📌 Credit Card Fraud Detection using Machine Learning
-🧠 Project Overview
+📌 Détection de fraude bancaire par Machine Learning
+🧠 Présentation du projet
 
-This project aims to build a machine learning system for detecting fraudulent credit card transactions using real-world financial data.
+Ce projet vise à développer un système de détection de fraude bancaire à l’aide du Machine Learning.
 
-Fraud detection is a critical problem in the financial industry where the goal is to identify rare fraudulent transactions while minimizing false alarms and missed fraud cases.
+Dans le secteur financier, la détection de fraude est un problème critique : il s’agit d’identifier des transactions frauduleuses rares tout en limitant les erreurs de détection.
 
-🎯 Problem Statement
-Task: Binary Classification
-Objective: Predict whether a transaction is:
-0 → Normal transaction
-1 → Fraudulent transaction
+🎯 Problématique
+Type de problème : Classification binaire
+Objectif :
+0 → Transaction normale
+1 → Transaction frauduleuse
 
-The dataset is highly imbalanced, which reflects real-world banking systems where fraud cases are rare but highly critical.
+Le dataset est fortement déséquilibré, ce qui reflète la réalité des systèmes bancaires où les fraudes sont rares mais très coûteuses.
 
-📊 Dataset
-Source: Kaggle Credit Card Fraud Detection Dataset
-Features:
+📊 Jeu de données
+Source : Kaggle – Credit Card Fraud Detection
+Variables :
 Time
 Amount
-V1 → V28 (PCA-transformed anonymized features)
-Target:
-Class (0 = normal, 1 = fraud)
-⚙️ Technologies Used
+V1 à V28 (variables anonymisées issues de PCA)
+Variable cible :
+Class (0 = normal, 1 = fraude)
+⚙️ Technologies utilisées
 Python 🐍
 Pandas
 NumPy
 Scikit-learn
 Matplotlib / Seaborn
 Imbalanced-learn (SMOTE)
-🧹 Data Preprocessing
-Checked and handled missing values
-Removed duplicates
-Feature scaling applied to:
-Amount
-Time
-Train/Test split with stratification to preserve class distribution
-⚖️ Class Imbalance Handling
+🧹 Prétraitement des données
+Vérification des valeurs manquantes
+Suppression des doublons
+Normalisation des variables (Time, Amount)
+Séparation en données d’entraînement et de test (stratifiée)
+⚖️ Gestion du déséquilibre des classes
 
-Since fraud cases are extremely rare, SMOTE (Synthetic Minority Over-sampling Technique) was applied to balance the dataset.
+Le dataset étant très déséquilibré, la technique SMOTE (Synthetic Minority Over-sampling Technique) a été utilisée afin de générer des exemples synthétiques de la classe minoritaire (fraude).
 
-This improved the model’s ability to detect fraud cases.
+Cela permet d’améliorer la capacité du modèle à détecter les fraudes.
 
-🤖 Machine Learning Model
-Model Used:
+🤖 Modèle de Machine Learning
+Modèle utilisé :
 Random Forest Classifier
-Why Random Forest?
-Strong performance on tabular data
-Handles non-linear relationships
-Robust against overfitting
-Widely used in financial risk modeling
-📈 Model Evaluation
+Pourquoi ce modèle ?
+Performant sur données tabulaires
+Robuste face aux relations non linéaires
+Réduit le risque de surapprentissage
+Très utilisé en finance et en scoring de risque
+📈 Évaluation du modèle
 
-The model was evaluated using:
+Les performances ont été évaluées à l’aide de :
 
 Accuracy
 Precision
-Recall (critical for fraud detection)
+Recall (très important en fraude)
 F1-score
-Confusion Matrix
-ROC Curve
-📊 Results Summary
-Without SMOTE:
-High precision (~94%)
-Lower recall (~82%) for fraud detection
-With SMOTE:
-Balanced performance
-Improved fraud detection sensitivity (~83% recall)
-Slight trade-off in precision
+Matrice de confusion
+Courbe ROC
+📊 Résultats
+Sans SMOTE :
+Precision fraude : ~94%
+Recall fraude : ~82%
+Avec SMOTE :
+Recall fraude amélioré (~83%)
+Meilleure sensibilité aux fraudes
+Légère baisse de précision
 
-👉 Final model prioritizes fraud detection (recall) which is critical in financial systems.
+👉 Le modèle avec SMOTE est plus adapté à un contexte bancaire car il réduit les fraudes non détectées.
 
-🧾 Confusion Matrix
+🧾 Matrice de confusion
 
-The confusion matrix shows the trade-off between:
+La matrice de confusion permet d’analyser :
 
-False Negatives (missed frauds ❌)
-False Positives (false alerts ⚠️)
+Faux négatifs (fraudes non détectées ❌)
+Faux positifs (fausses alertes ⚠️)
 
-Reducing false negatives is the main priority in this project.
+En détection de fraude, la priorité est de réduire les faux négatifs.
 
-📉 Key Insights
-Dataset is highly imbalanced (real-world scenario)
-Feature engineering is already PCA-transformed (V1–V28)
-Model performance depends heavily on handling imbalance
-Recall is more important than accuracy in fraud detection systems
-🚀 Business Impact
+📉 Analyse métier
+Le dataset est fortement déséquilibré (cas réel en finance)
+Les variables V1 à V28 sont anonymisées (PCA)
+Le problème principal est la détection des fraudes rares
+Le rappel (recall) est plus important que l’accuracy
+🚀 Impact métier
 
-This model can help:
+Ce modèle peut être utilisé pour :
 
-Detect fraudulent transactions in real time
-Reduce financial losses
-Improve banking security systems
-Support risk analysis teams
-🔮 Future Improvements
-Hyperparameter tuning (GridSearch / RandomSearch)
-XGBoost / LightGBM models
-Threshold optimization for better recall
-Deployment using Flask or FastAPI
-Real-time fraud detection API
-👨‍💻 Author
+Détecter les transactions frauduleuses en temps réel
+Réduire les pertes financières
+Améliorer la sécurité bancaire
+Aider les équipes de gestion des risques
+🔮 Améliorations possibles
+Optimisation des hyperparamètres
+Utilisation de modèles avancés (XGBoost, LightGBM)
+Ajustement du seuil de décision
+Déploiement via API (Flask / FastAPI)
+Mise en production en temps réel
+👨‍💻 Auteur
 
 Kouassi Assamoi Chris Emmanuel
-Data Science | Machine Learning | Finance & AI Enthusiast
+Étudiant en Data Science | Machine Learning | Finance & Intelligence Artificielle
 
 📌 Conclusion
 
-This project demonstrates an end-to-end machine learning pipeline for fraud detection, including:
+Ce projet présente un pipeline complet de Machine Learning appliqué à la détection de fraude bancaire :
 
-Data preprocessing
-Handling class imbalance
-Model training
-Evaluation and interpretation
+Analyse des données
+Prétraitement
+Gestion du déséquilibre
+Modélisation
+Évaluation
